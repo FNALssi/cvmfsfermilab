@@ -6,10 +6,11 @@ TOP=/grid/fermiapp/cvmfsfermilab
 PROJTOP=$TOP/publish
 
 LOG=$TOP/logs/sync-cvmfs-fermilab.log
-if [ ! -w $LOG.new ]; then
+if touch $LOG.new 2>/dev/null; then
+    rm -f $LOG.new
+else
     # Need this separate check because bash does not complain when
-    #  '>>' is done onto a read-only filesystem.  Also test -w has to
-    #  be on a new file, otherwise it sees the file as writable.
+    #  '>>' is done onto a read-only filesystem. 
     echo "Cannot write to $LOG" >&2
     exit 1
 fi
