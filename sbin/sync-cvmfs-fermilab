@@ -94,7 +94,9 @@ for PROJECT in $PROJECTS; do
         SPACK_TOOLS=/grid/fermiapp/products/common/prd/spack_infrastructure/current/NULL
         PATH=$SPACK_TOOLS/bin:$PATH
         WORKFILE=$TOP/triggers/$BASEP/workfile
-        update_spack $WORKFILE /cvmfs/$REPO/$PROJECT/spack/current/NULL
+        if [ -f $WORKFILE ]; then
+            update_spack $WORKFILE /cvmfs/$REPO/$PROJECT/spack/current/NULL
+        fi
         update_ups_to_spack  /cvmfs/$REPO/$PROJECT/spack/current/NULL || true
     ;;
 
