@@ -20,7 +20,7 @@ exec 3>&2 >>$LOG 2>&1
 #   and if it doesn't, sync both top level and in products
 #
 # if it is "packages/" use "update_spack" tools to update it
-PROJECTS="products/common products/artdaq ebd genie noble packages/common packages/external packages/larsoft"
+PROJECTS="products/common products/artdaq cosmiq ebd genie noble packages/common packages/external packages/larsoft"
 REPO=fermilab.opensciencegrid.org
 
 TRIGGERED=""
